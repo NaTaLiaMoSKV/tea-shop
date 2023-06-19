@@ -1,34 +1,33 @@
-import Filter from "./Filter";
-import { useDispatch, useSelector } from "react-redux";
-import { selectError, selectIsLoading, selectTeasList } from "redux/selectors";
-import { useEffect } from "react";
-import { fetchTeas } from "redux/operations";
-// import Main from "./Main";
+import { Routes, Route } from "react-router-dom";
 import AddTea from "./AddTea";
-import TeasList from "./TeasList";
+import { fetchTeas } from "redux/operations";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import Layout from "./Layout";
+import HomePage from "./HomePage";
+import { RestrictedRoute } from "./RestrictedRoute";
 
 export default function App() {
   const dispatch = useDispatch();
-  const teas = useSelector(selectTeasList);
-  const error = useSelector(selectError);
-  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(fetchTeas());
   }, [dispatch]);
 
   return (
-    
-    <>
-      <h2>Teas</h2>
-      <AddTea />
-      <Filter />
-      <TeasList />
-      {/* <Main /> */}
-      
-      { !isLoading && !error && teas.length === 0 && <h2 style={{ marginLeft: "20px", fontFamily: "monospace" }}> Your tea shop is empty </h2> }
-      { isLoading && !error && <h2 style={{ marginLeft: "20px", fontFamily: "monospace" }}>Loading tea shop...</h2> }     
-    </>
+    // <AddTea />
+    <div id="content">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/addTea" element={<AddTea />} />
+          <Route path="*" element={
+                <RestrictedRoute redirectTo="/" />
+              }
+          />
+        </Route>
+      </Routes> 
+    </div>
   )
 
 }

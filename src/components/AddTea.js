@@ -32,7 +32,8 @@ export default function AddTea() {
 
         if (!isTeaInTeasList(tea) ) {
             dispatch(addTea(tea));
-        } else alert(`${tea.name} is already in shop.`);
+            alert(`${tea.name} додано!`)
+        } else alert(`${tea.name} вже доданий! `);
         
         setName('');
         setPrice('');
@@ -61,31 +62,34 @@ export default function AddTea() {
     }
 
     return (
-        <form onSubmit={onFormSubmit}>
-            <label className="form__label">
-                Name 
-                <input type="text" value={name} name="name" pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                title="Name may contain only letters, apostrophe, dash and spaces. "
-                onChange={handleInputChange} required/>
-            </label>
+        <>
+            <h1>Додати новий чай</h1>
+            <form onSubmit={onFormSubmit}>
+                <label className="form__label">
+                    Назва 
+                    <input type="text" value={name} minLength={5} maxLength={35} name="name" pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    title="Name may contain only letters, apostrophe, dash and spaces. "
+                    onChange={handleInputChange} required/>
+                </label>
 
-            <label className="form__label">
-                Price
-                <input type="number" min={1} value={price} name="price" title="Name may contain only тгьиук., " onChange={handleInputChange} required/>
-            </label>
-            <label className="form__label">
-                Description 
-                <input type="text" value={description} name="description" pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                title="Name may contain only letters, apostrophe, dash and spaces. "
-                onChange={handleInputChange} required/>
-            </label>
-            <label className="form__label">
-                Photo URL 
-                <input type="url" value={image} name="image" onChange={handleInputChange} required/>
-            </label>
+                <label className="form__label">
+                    Ціна<span style={{ fontSize: 14, marginLeft: 5 }}>(50г)</span>
+                    <input type="number" min={1} value={price} name="price" title="Name may contain only тгьиук., " onChange={handleInputChange} required/>
+                </label>
+                <label className="form__label">
+                    Опис 
+                    <textarea value={description} name="description" 
+                        rows="4"  cols="50" 
+                        maxlength="150" onChange={handleInputChange} required />
+                </label>
+                <label className="form__label">
+                    URL зображення
+                    <input type="url" value={image} name="image" onChange={handleInputChange} required/>
+                </label>
 
-            
-            <button type="submit" className="form__button">Add tea</button>
-        </form>
+                
+                <button type="submit" className="form__button">Додати новий чай</button>
+            </form>
+        </>
     )
 }

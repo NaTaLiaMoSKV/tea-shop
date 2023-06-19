@@ -18,11 +18,12 @@ export default function TeasList() {
                 .filter(tea => findTea(tea.name))
                 .map(tea => ( 
                     <li key={tea.id} className="contacts__item">
-                        <p>{tea.name}: <span style={{ marginLeft: 10 }}>{tea.price} грн.</span></p>
-                        <p>{tea.name}: <span style={{ marginLeft: 10 }}>{tea.description}</span></p>
-                        <img src={tea.image} alt={tea.name}></img>
+                        <img className="contacts__item-image" src={tea.image} alt={tea.name}></img>
+                        <p className="contacts__item-name"> {tea.name}</p>
+                        <p className="contacts__item-name"> Ціна: <span className="contacts__item-name" style={{ marginLeft: 10 }}>{tea.price}грн. / 50г</span></p>
+                        <p className="contacts__item-desription">{tea.description}</p>
                         
-                        <button className="contacts__button" type="button" onClick={() => dispatch(deleteTea(tea.id))}> Delete </button>
+                        <button className="contacts__button" type="button" onClick={() => dispatch(deleteTea(tea.id))}> Видалити зі сховища </button>
                     </li>
                 ))
             }            

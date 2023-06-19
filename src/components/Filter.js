@@ -11,7 +11,7 @@ export default function Filter() {
     
     return (
         <div className="filter">
-            <label> Find tea by name </label>
+            <label> Пошук чаю за назвою: </label>
             <input className="filter__input" name="filter" onChange={handleInputChange} />
         </div>
     )
