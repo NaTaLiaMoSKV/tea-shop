@@ -1,4 +1,3 @@
-// import { Routes, Route } from "react-router-dom";
 import Filter from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { selectError, selectIsLoading, selectTeasList } from "redux/selectors";
