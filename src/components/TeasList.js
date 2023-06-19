@@ -20,7 +20,7 @@ export default function TeasList() {
                     <li key={tea.id} className="contacts__item">
                         <p>{tea.name}: <span style={{ marginLeft: 10 }}>{tea.price} грн.</span></p>
                         <p>{tea.name}: <span style={{ marginLeft: 10 }}>{tea.description}</span></p>
-                        <img src={tea.image}></img>
+                        <img src={tea.image} alt={tea.name}></img>
                         
                         <button className="contacts__button" type="button" onClick={() => dispatch(deleteTea(tea.id))}> Delete </button>
                     </li>

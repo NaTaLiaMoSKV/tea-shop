@@ -1,11 +1,10 @@
 // import { Routes, Route } from "react-router-dom";
 import Filter from "./Filter";
-// import ContactList from "./ContactList";
 import { useDispatch, useSelector } from "react-redux";
 import { selectError, selectIsLoading, selectTeasList } from "redux/selectors";
 import { useEffect } from "react";
 import { fetchTeas } from "redux/operations";
-import Main from "./Main";
+// import Main from "./Main";
 import AddTea from "./AddTea";
 import TeasList from "./TeasList";
 
