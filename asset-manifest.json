@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tea-shop/static/css/main.e2b9b222.css",
+    "main.js": "/tea-shop/static/js/main.296ac9d7.js",
+    "index.html": "/tea-shop/index.html",
+    "main.e2b9b222.css.map": "/tea-shop/static/css/main.e2b9b222.css.map",
+    "main.296ac9d7.js.map": "/tea-shop/static/js/main.296ac9d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2b9b222.css",
+    "static/js/main.296ac9d7.js"
+  ]
+}
